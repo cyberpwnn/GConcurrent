@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.cyberpwn</groupId>
 			<artifactId>GFormat</artifactId>
-			<version>1.0</version>
+			<version>1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.cyberpwn</groupId>
