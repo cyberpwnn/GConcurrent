@@ -12,7 +12,7 @@ public class ParallelThread extends Thread
 	{
 		queue = new ConcurrentLinkedQueue<Execution>();
 		info = new ThreadInformation(id);
-		setPriority(MAX_PRIORITY);
+		setPriority(MIN_PRIORITY);
 		setName("Surge " + key + " " + id);
 	}
 
@@ -41,14 +41,9 @@ public class ParallelThread extends Thread
 				info.setTick(info.getTick() + 1);
 			}
 
-			catch(InterruptedException e)
-			{
-				System.out.println("Shutting Down " + getName());
-			}
-
 			catch(Exception e)
 			{
-				e.printStackTrace();
+
 			}
 		}
 	}
@@ -80,7 +75,6 @@ public class ParallelThread extends Thread
 		{
 			if(interrupted())
 			{
-				System.out.println("Parallel Thread " + info.getId() + " Interrupted mid-execution");
 				return;
 			}
 

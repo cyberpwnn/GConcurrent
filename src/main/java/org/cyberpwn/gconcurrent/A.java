@@ -2,7 +2,7 @@ package org.cyberpwn.gconcurrent;
 
 public abstract class A extends Execution
 {
-	public static ParallelPoolManager mgr;
+	public static ParallelPoolManager mgr = null;
 
 	public A()
 	{

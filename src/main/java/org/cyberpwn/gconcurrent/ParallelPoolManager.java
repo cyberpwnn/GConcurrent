@@ -28,8 +28,12 @@ public abstract class ParallelPoolManager
 	{
 		long ns = M.ns();
 
+		int itr = 0;
+		int fsi = squeue.size();
+
 		while(!squeue.isEmpty())
 		{
+			itr++;
 			squeue.poll().run();
 
 			long nns = M.ns() - ns;
@@ -38,6 +42,11 @@ public abstract class ParallelPoolManager
 			{
 				break;
 			}
+		}
+
+		if(itr >= fsi)
+		{
+			squeue.clear();
 		}
 	}
 
@@ -72,7 +81,7 @@ public abstract class ParallelPoolManager
 	{
 		long k = M.ms();
 
-		while(getQueueSize() != 0)
+		while(getTotalQueueSize() > 0)
 		{
 			try
 			{
@@ -86,6 +95,18 @@ public abstract class ParallelPoolManager
 		}
 
 		return M.ms() - k;
+	}
+
+	public int getTotalQueueSize()
+	{
+		int size = getQueueSize();
+
+		for(ParallelThread i : threads)
+		{
+			size += i.getQueue().size();
+		}
+
+		return size;
 	}
 
 	public void start()
