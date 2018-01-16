@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.cyberpwn</groupId>
 	<artifactId>GConcurrent</artifactId>
-	<version>1.5</version>
+	<version>1.5.1</version>
 	<name>GConcurrent</name>
 	<description>concstuff</description>
 	<properties>

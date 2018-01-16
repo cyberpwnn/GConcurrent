@@ -26,8 +26,6 @@ public abstract class ParallelPoolManager
 
 	public void tickSyncQueue()
 	{
-		long ns = M.ns();
-
 		int itr = 0;
 		int fsi = squeue.size();
 
@@ -35,13 +33,6 @@ public abstract class ParallelPoolManager
 		{
 			itr++;
 			squeue.poll().run();
-
-			long nns = M.ns() - ns;
-
-			if(nns > getNanoGate())
-			{
-				break;
-			}
 		}
 
 		if(itr >= fsi)
