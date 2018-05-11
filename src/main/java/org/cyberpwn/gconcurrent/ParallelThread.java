@@ -41,6 +41,11 @@ public class ParallelThread extends Thread
 				info.setTick(info.getTick() + 1);
 			}
 
+			catch(InterruptedException e)
+			{
+				return;
+			}
+
 			catch(Exception e)
 			{
 

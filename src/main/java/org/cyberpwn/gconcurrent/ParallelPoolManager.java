@@ -28,8 +28,10 @@ public abstract class ParallelPoolManager
 	{
 		int itr = 0;
 		int fsi = squeue.size();
+		long ns = M.ns();
+		long nsl = 1000000;
 
-		while(!squeue.isEmpty())
+		while(!squeue.isEmpty() && M.ns() - ns < nsl)
 		{
 			itr++;
 			squeue.poll().run();
